@@ -75,12 +75,12 @@ install:
         }
       }
 
+      # install vulkan SDK
+      choco install vulkan-sdk -y
+
       # update machine environment path
       if ($newMachineEnvironmentPath -ne $machinePath)
       {
         [Environment]::SetEnvironmentVariable('Path', $newMachineEnvironmentPath, 'MACHINE')
       }
 
-      # install vulkan SDK
-      curl.exe -L --silent --show-error --output VulkanSDK.exe https://sdk.lunarg.com/sdk/download/1.3.216.0/windows/VulkanSDK-1.3.216.0-Installer.exe?Human=true
-      .\VulkanSDK.exe /S
